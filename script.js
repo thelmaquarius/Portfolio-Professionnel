@@ -63,25 +63,24 @@ if (boutonVerrouillage && ecranChargement) {
 }
 
 /* ========== 3) NOTIFICATION 5 SECONDES APRÈS CHARGEMENT (accueil2.html) ========== */
-
-/* ========== NOTIFICATION + POPUP (accueil2.html) ========== */
+/* ========== NOTIFICATION + POPUP + CLOCHETTE (accueil2.html) ========== */
 
 const notif = document.getElementById("notification");
 const popup = document.getElementById("popupStage");
 const popupOkBtn = document.getElementById("popupOkBtn");
 const popupCloseBtn = document.getElementById("popupCloseBtn");
+const bell = document.getElementById("notifBell");
 
+// 1) Afficher la notif après 5 secondes
 if (notif) {
-  // 5 secondes après l'arrivée sur la page d'accueil2
   setTimeout(() => {
     notif.classList.remove("hidden");
-    // petit délai pour déclencher la transition
     requestAnimationFrame(() => {
       notif.classList.add("show");
     });
   }, 1000);
 
-  // clic sur la notification -> ouvre la fenêtre
+  // clic sur la notif → ouvrir la popup
   notif.addEventListener("click", () => {
     if (popup) {
       popup.classList.remove("hidden");
@@ -89,69 +88,40 @@ if (notif) {
   });
 }
 
-// Bouton "J'ai compris" -> ferme la fenêtre + la notif
-if (popupOkBtn) {
-  popupOkBtn.addEventListener("click", () => {
-    if (popup) popup.classList.add("hidden");
-    if (notif) notif.classList.add("hidden");
-  });
-}
-
-// Bouton X -> ferme juste la fenêtre
-if (popupCloseBtn) {
-  popupCloseBtn.addEventListener("click", () => {
-    if (popup) popup.classList.add("hidden");
-  });
-}
-
-/* ========== CLOCHETTE QUI RÉACTIVE LA NOTIF ========== */
-
-const bell = document.getElementById("notifBell");
-
-function afficherCloche() {
-  if (!bell) return;
-  bell.classList.remove("hidden");
-  requestAnimationFrame(() => {
-    bell.classList.add("show");
-  });
-}
-
-function masquerCloche() {
-  if (!bell) return;
-  bell.classList.remove("show");
-  setTimeout(() => bell.classList.add("hidden"), 200);
-}
-
-// Quand on ferme la popup → afficher la cloche
-
-if (popupOkBtn) {
-  popupOkBtn.addEventListener("click", () => {
+// 2) Fonction commune : fermer la popup, cacher la notif, montrer la cloche
+function closePopupAndShowBell() {
+  if (popup) {
     popup.classList.add("hidden");
-    notif.classList.add("hidden");
-    afficherCloche();
-  });
+  }
+  if (notif) {
+    notif.classList.remove("show");
+    notif.classList.add("hidden"); // disparaît pour de bon
+  }
+  if (bell) {
+    bell.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      bell.classList.add("show");
+    });
+  }
 }
 
+// bouton "J'ai compris"
+if (popupOkBtn) {
+  popupOkBtn.addEventListener("click", closePopupAndShowBell);
+}
+
+// bouton X
 if (popupCloseBtn) {
-  popupCloseBtn.addEventListener("click", () => {
-    popup.classList.add("hidden");
-    afficherCloche();
-  });
+  popupCloseBtn.addEventListener("click", closePopupAndShowBell);
 }
 
-// Clic cloche → remettre la notification
-
+// 3) Clic sur la cloche → rouvre juste la popup, la cloche reste
 if (bell) {
   bell.addEventListener("click", () => {
-    // masquer la cloche
-    masquerCloche();
-
-    // afficher la notification
-    notif.classList.remove("hidden");
-
-    requestAnimationFrame(() => {
-      notif.classList.add("show");
-    });
+    if (popup) {
+      popup.classList.remove("hidden");
+    }
+    // on ne touche pas à la notif → elle reste cachée
   });
 }
 
