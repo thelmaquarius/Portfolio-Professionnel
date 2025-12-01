@@ -1,3 +1,15 @@
+// HEURE SYNCHRONISEE
+
+function updateClock() {
+      const now = new Date();
+      let h = String(now.getHours()).padStart(2, "0");
+      let m = String(now.getMinutes()).padStart(2, "0");
+
+      document.getElementById("heure_verrouillage").textContent = `${h}:${m}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
 const chargement = document.getElementById("chargement");
 const bureau = document.getElementById("bureau");
 const progression = document.querySelector(".progression");

@@ -1,243 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+ html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'VT323', monospace;
+}
 
 body {
-  margin: 0;
-  font-family: 'VT323', monospace;
-  background: linear-gradient(to bottom, #ff86d7, #752ca9);
-  color: #fff;
-  height: 100vh;
-  overflow: hidden;
-  transition: background-color 0.5s ease;
+    background-image: url("images/fond_windows_dessin.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'VT323', monospace;
+    cursor: url("images/curseur_fleche.png") 0 0, auto;
+    }
+
+/* ECRAN DE VERROUILLAGE */
+
+.container_verrouillage {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      gap: 1.2rem;    
+    }
+
+#heure_verrouillage {
+    font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 600;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      color: #000;
+    }
+
+.thelma_verrouillage {
+      width: clamp(140px, 28vw, 200px);
+      height: clamp(140px, 28vw, 200px);
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 25px;
+      transition: transform 0.5s ease;
+    }
+
+ .thelma_verrouillage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+.thelma_verrouillage:hover {
+    transform: scale(1.05);
 }
 
-/* Écran de chargement */
-.ecran_chargement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  background: #000;
-  color: #fd92ff; /* #d092ff */
-  font-size: clamp(1.3rem, 7vw, 2.2rem);
-  padding: 30px;
-}
+.utilisateur_verrouillage {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin-bottom: 25px;
+      color: #000;
+    }
 
-.barre_progression {
-  width: 60%; /* 🔥 s’adapte à la largeur de l’écran */
-  max-width: 300px; /* limite sur les grands écrans */
-  min-width: 180px; /* évite qu’elle devienne trop petite */
-  height: 18px;
-  border: 2px solid #fd92ff;
-  border-radius: 20px;
-  overflow: hidden;
-  display: block;
-  margin: 10vh auto 0 auto;
-}
+#bouton_verrouillage {
+      display: inline-block;
+      padding: 12px 40px;
+      font-size: clamp(1.2rem, 3.3vw, 2rem);
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(0deg, #D000FF, #4528FF);
+      border: 3px solid #000;
+      transition: 0.15s ease;
+      cursor: pointer;
+      margin-bottom: 50px;
+    }
 
-.progression {
-  height: 100%;
-  width: 0%;
-  background: #fd92ff;
-  transition: width 0.2s;
-}
-
-.compteur {
-  margin-top: 10px;
-  font-size: clamp(2rem, 8vw, 3rem);
-  transition: all 0.3s ease;
-  align-items: center;
-}
-
-/* 🔹 Petits écrans (smartphones) */
-@media (max-width: 500px) {
-
-  .barre_progression {
-    width: 80%; /* un peu plus large sur mobile */
-    height: 14px;
-  }
-}
-
-/* 🔹 Très grands écrans */
-@media (min-width: 1200px) {
-  .barre_progression {
-    height: 22px;
-  }
-}
-
-/* Interface principale */
-.hidden {
-  display: none;
-}
-
-.bureau {
-  position: relative;
-  height: 100vh;
-  padding: 10px; /* permet de ne pas coller aux bords */
-}
-
-/* Barre des tâches */
-.taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  background: #c0c0c0; /* D2C3F6*/
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 10px;
-  border-top: 2px solid #fff;
-}
-
-.start {
-  background: linear-gradient(#e0e0e0, #b0b0b0);
-  padding: 4px 10px;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-
-.time {
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
-  margin-right: 30px;
-}
-
-.thelma {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: clamp(80px, 10vw, 120px); /* taille responsive */
-  height: auto;
-  border: 3px solid #272727;
-}
-
-/* Fenêtres responsive */
-.window {
-  background: #c0c0c0;
-  color: #000;
-  width: clamp(500px, 80vw, 1000px); /* large sur grand écran */
-  height: clamp(200px, 70vh, 800px); /* prend une bonne partie de la hauteur */
-  border: 2px solid #000;
-  box-shadow: 6px 6px 0 #00000088;
-  position: absolute;
-  top: 10vh; /* centrée verticalement */
-  left: 10vw; /* centrée horizontalement */
-  border-radius: 6px;
-  overflow: hidden; /* pour éviter que le contenu dépasse */
-  display: flex;
-  flex-direction: column;
-}
-
-.window.projects {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.window-header {
-  background: linear-gradient(#000080, #0000a0);
-  color: #fff;
-  padding: clamp(6px, 1vw, 10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-
-.window-content {
-  padding: clamp(12px, 2vw, 20px);
-  overflow-y: auto; /* si le contenu est long */
-  flex-grow: 1;
-}
-
-.close {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  width: clamp(24px, 3vw, 32px);  /* largeur plus grande */
-  height: clamp(24px, 3vw, 32px); /* hauteur plus grande */
-  border-radius: 4px;
-  font-size: clamp(16px, 2vw, 24px); /* taille de la croix */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.texte_fenetre {
-  font-size: 1.7vw;
-}
-
-.titre_fenetre {
-    font-size: 2.2vw;
-}
-
-/* Icônes dossiers */
-.desktop-icons {
-  display: flex;
-  flex-direction: column; /* empilées verticalement */
-  gap: 15px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.icon:hover { 
-  transform: scale(1.1);
-}
-
-.icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  width: clamp(60px, 8vw, 100px);
-}
-
-.file {
-  width: 100%;
-  aspect-ratio: 1/1;
-  background: url('images/fichier.png') center/contain no-repeat;
-  border: none;
-  margin-bottom: 5px;
-  padding: 50px;
-  margin-right: 10px;
-}
-
-.thelma:hover {
-  box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.347);
-}
-
-.icon span {
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  color: #fff;
-  text-align: center;
-}
-
-/* Petits écrans */
-@media (max-width: 500px) {
-  .desktop-icons {
-    flex-direction: row;
-    top: 10px;
-    right: 10px;
-    gap: 10px;
-  }
-
-  .icon {
-    width: clamp(50px, 20vw, 70px);
-  }
-
-  .window {
-    width: 90%;
-    left: 5%;
-    top: 60px;
-  }
-
-  .window.projects {
-    top: 120px;
-    left: 5%;
-  }
-}
+#bouton_verrouillage:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0 #000;
+    }

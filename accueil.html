@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Thelma Tabury</title>
+  <link rel="stylesheet" href="styles2.css">
+  <link rel="icon" href="images/pc_violet_favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Écran de chargement -->
+  <div class="ecran_chargement" id="chargement">
+    <div class="texte_chargement">
+      <p>Démarrage de ThelmaOS.</p>
+      <p>Chargement des fichiers...</p>
+      <div class="barre_progression"><div class="progression"></div></div>
+    </div>
+    <div class="compteur" id="compteur">0%</div>
+  </div>
+
+  <!-- Interface principale -->
+  <main class="bureau hidden" id="bureau">
+  
+    <header class="taskbar">
+      <div class="start">Start</div>
+      <div class="time" id="clock"></div>
+      
+    </header>
+    <img src="images/thelma_dessin.jpg" alt="Logo" class="thelma">
+    
+  <div class="desktop-icons">
+<div class="icon" data-window="projects">
+  <div class="file"></div>
+  <span>projet_1.txt</span>
+</div>
+<div class="icon" data-window="about">
+  <div class="file"></div>
+  <span>À propos</span>
+</div>
+</div>
+    
+
+    <section class="window projects hidden">
+      <div class="window-header">
+        <span class="titre_fenetre">Projet.txt</span>
+        <button class="close">✕</button>
+      </div>
+      <div class="window-content">
+        <p class="texte_fenetre">Salut ! Je m’appelle Thelma Tabury.</p> 
+        <p class="texte_fenetre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptatibus. Nobis distinctio ut libero possimus labore recusandae cupiditate iusto voluptatum molestiae delectus harum, quas suscipit qui voluptas a voluptates aspernatur.</p>
+      </div>
+    </section>
+
+    <section class="window about hidden">
+      <div class="window-header">
+        <span class="titre_fenetre">Thelma_Tabury.exe</span>
+        <button class="close">✕</button>
+      </div>
+      <div class="window-content">
+         <p class="texte_fenetre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptatibus. Nobis distinctio ut libero possimus labore recusandae cupiditate iusto voluptatum molestiae delectus harum, quas suscipit qui voluptas a voluptates aspernatur.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
