@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Thelma Tabury</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/pc_violet_favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  
+   <!-- Notification en haut à droite -->
+  <div id="notification" class="notification hidden">
+    <h1>Nouvelle notification</h1>
+    <h2>Cliquer pour ouvrir</h2>
+  </div>
+
+  <!-- Fenêtre type Windows XP -->
+  <div id="popupStage" class="popup-overlay hidden">
+    <div class="popup-window">
+      <div class="popup-header">
+        <span>Nouvelle notification</span>
+        <button class="popup-close" id="popupCloseBtn">✕</button>
+      </div>
+
+      <!-- Cloche de notification -->
+<img id="notifBell" src="images/cloche.png" class="notification-bell hidden" alt="Ouvrir notification">
+
+      <div class="popup-body">
+        <p>
+          Pour info : Thelma est à la recherche d'un stage de 2 mois
+          dans le domaine du numérique / multimédia. N'hésitez pas à la contacter !
+        </p>
+      </div>
+      <div class="popup-footer">
+        <button id="popupOkBtn">Contacts</button>
+        <button id="popupOkBtn">J'ai compris</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRE DES TÂCHES -->
+  <div class="taskbar">
+    <div class="taskbar-start">Start</div>
+    <div id="heure_bureau" class="taskbar-time">12:34</div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

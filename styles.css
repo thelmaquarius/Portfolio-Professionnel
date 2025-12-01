@@ -1,3 +1,8 @@
+ :root {
+  --degrade-violet: linear-gradient(180deg, #4528FF, #D000FF);
+  --degrade-rose: linear-gradient(180deg, #FF00B2, #FF8BDC);
+}
+ 
  html, body {
     height: 100%;
     overflow: hidden;
@@ -76,3 +81,319 @@ body {
       transform: translate(-3px, -3px);
       box-shadow: 7px 7px 0 #000;
     }
+
+    /* ------------------------ */
+/* ÉCRAN DE CHARGEMENT      */
+/* ------------------------ */
+
+.hidden {
+  display: none;
+}
+
+.ecran_chargement {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #000;
+  color: #fd92ff;
+  font-family: 'VT323', monospace;
+  font-size: clamp(1.3rem, 7vw, 2.2rem);
+  padding: 30px;
+  z-index: 1000;
+}
+
+.barre_progression {
+  width: 60%;
+  max-width: 300px;
+  min-width: 180px;
+  height: 18px;
+  border: 2px solid #fd92ff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+  margin: 10vh auto 0 auto;
+}
+
+.progression {
+  height: 100%;
+  width: 0%;
+  background: #fd92ff;
+  transition: width 0.2s;
+}
+
+.compteur {
+  margin-top: 10px;
+  font-size: clamp(2rem, 8vw, 3rem);
+  transition: all 0.3s ease;
+}
+
+/* BARRE DES TÂCHES ACCUEIL */
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  font-family: 'VT323', monospace;
+  z-index: 999;
+}
+
+.taskbar-start {
+  background: linear-gradient(#e0e0e0, #b0b0b0);
+  padding: 6px 15px;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.taskbar-time {
+  font-size: 1.5rem;
+}
+
+/* NOTIFICATION (accueil2) */
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #000;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border: 2px solid #000;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  box-shadow: 4px 4px 0 #000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  z-index: 2000;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+/* NOTIFICATION (accueil2) */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 2px solid #000;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  box-shadow: 4px 4px 0 #000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* POPUP STYLE WINDOWS XP */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.popup-window {
+  width: min(400px, 90vw);
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: 'VT323', monospace;
+}
+
+.popup-header {
+  background: linear-gradient(#000080, #0000a0);
+  color: #fff;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.popup-close {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-body {
+  padding: 15px 12px;
+  color: #000;
+  font-size: 1.1rem;
+}
+
+.popup-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.popup-footer button {
+  background: #e0e0e0;
+  border: 2px solid #000;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+}
+
+.popup-footer button:hover {
+  background: #ffffff;
+}
+
+/* ===============================
+   POPUP STYLE WINDOWS GIRLY (SCREEN)
+   =============================== */
+
+.popup-window {
+  width: min(600px, 90vw);
+  max-height: 80vh;
+  background: #ffe9f7; /* rose très clair */
+  border: 3px solid #000;
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 #000; /* effet pixel */
+  overflow: hidden;
+  font-family: 'VT323', monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barre de titre violet → rose */
+.popup-header {
+  background: var(--degrade-violet);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-bottom: 3px solid #000;
+}
+
+/* CROIX ROSE */
+.popup-close {
+  background: var(--degrade-rose);
+  color: #000;
+  border: 2px solid #000;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.popup-close:hover {
+  background: #ff33a8;
+}
+
+/* Contenu rose clair + scroll */
+.popup-body {
+  padding: 18px 20px;
+  color: #000;
+  font-size: 1.25rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Scrollbar rose personnalisée */
+.popup-body::-webkit-scrollbar {
+  width: 12px;
+}
+
+.popup-body::-webkit-scrollbar-track {
+  background: #ffd3ec;
+}
+
+.popup-body::-webkit-scrollbar-thumb {
+  background: #ff4dbd;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.popup-body::-webkit-scrollbar-thumb:hover {
+  background: #ff1493;
+}
+
+/* Pied de fenêtre */
+.popup-footer {
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 2px solid #000;
+  background: #ffe9f7;
+}
+
+.popup-footer button {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 6px 18px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+}
+
+.popup-footer button:hover {
+  background: #ffe0f3;
+}
+
+/* Petite cloche en haut à droite */
+.notification-bell {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  cursor: pointer;
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.notification-bell.show {
+  opacity: 1;
+  transform: translateY(0);
+}

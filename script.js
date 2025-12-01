@@ -1,119 +1,157 @@
-// HEURE SYNCHRONISEE
+/* ========== 1) HORLOGE GLOBALE (index + accueil2) ========== */
 
-function updateClock() {
-      const now = new Date();
-      let h = String(now.getHours()).padStart(2, "0");
-      let m = String(now.getMinutes()).padStart(2, "0");
+function updateClockGlobal() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, "0");
+  const m = String(now.getMinutes()).padStart(2, "0");
+  const timeText = `${h}:${m}`;
 
-      document.getElementById("heure_verrouillage").textContent = `${h}:${m}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+  const heureVerrou = document.getElementById("heure_verrouillage");
+  const heureBureau = document.getElementById("heure_bureau");
 
-const chargement = document.getElementById("chargement");
-const bureau = document.getElementById("bureau");
-const progression = document.querySelector(".progression");
-const compteur = document.getElementById("compteur");
-
-let width = 0;
-const interval = setInterval(() => {
-  width += 2; // augmente de 2% à chaque intervalle
-  progression.style.width = width + "%";
-  compteur.textContent = width + "%"; // synchronise le texte avec la barre
-
-  if (width >= 100) {
-    clearInterval(interval);
-    setTimeout(() => {
-      chargement.classList.add("hidden");
-      bureau.classList.remove("hidden");
-    }, 500);
+  if (heureVerrou) {
+    heureVerrou.textContent = timeText;
   }
-}, 60); // intervalle = 60ms → ~3 secondes pour aller de 0 à 100
+  if (heureBureau) {
+    heureBureau.textContent = timeText;
+  }
+}
+
+// on lance une fois au chargement
+updateClockGlobal();
+// puis toutes les secondes
+setInterval(updateClockGlobal, 1000);
 
 
-const windows = document.querySelectorAll(".window");
 
-windows.forEach((win) => {
-  const header = win.querySelector(".window-header");
-  let isDragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+/* ========== 2) CHARGEMENT SUR index.html + REDIRECTION ========== */
 
-  
+const boutonVerrouillage = document.getElementById("bouton_verrouillage");
+const ecranChargement = document.getElementById("chargement");
 
-  header.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    offsetX = e.clientX - win.offsetLeft;
-    offsetY = e.clientY - win.offsetTop;
-    win.style.zIndex = 1000;
-    header.style.cursor = 'grabbing';
-  });
+if (boutonVerrouillage && ecranChargement) {
+  const containerVerrouillage = document.querySelector(".container_verrouillage");
+  const progression = ecranChargement.querySelector(".progression");
+  const compteur = document.getElementById("compteur");
 
-  document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
+  boutonVerrouillage.addEventListener("click", (e) => {
+    e.preventDefault(); // on bloque le lien <a>
 
-    // Calcul de la nouvelle position
-    let newLeft = e.clientX - offsetX;
-    let newTop = e.clientY - offsetY;
-
-    // Limites pour ne pas sortir de l'écran
-    const maxLeft = window.innerWidth - win.offsetWidth;
-    const maxTop = window.innerHeight - win.offsetHeight - 40; // moins la barre des tâches
-    newLeft = Math.max(0, Math.min(newLeft, maxLeft));
-    newTop = Math.max(0, Math.min(newTop, maxTop));
-
-    win.style.left = newLeft + "px";
-    win.style.top = newTop + "px";
-  });
-
-  document.addEventListener("mouseup", () => {
-    isDragging = false;
-    win.style.zIndex = "";
-    header.style.cursor = 'grab';
-  });
-});
-
-// Sélectionne toutes les icônes et les fenêtres
-const icons = document.querySelectorAll('.icon');
-const allWindows = document.querySelectorAll('.window');
-
-// Quand on clique sur une icône du bureau
-icons.forEach(icon => {
-  icon.addEventListener('click', () => {
-    const target = icon.dataset.window; // ex: "about" ou "projects"
-    const win = document.querySelector(`.window.${target}`);
-    if (win) {
-      win.classList.remove('hidden'); // affiche la fenêtre
+    // cacher l'écran de verrouillage
+    if (containerVerrouillage) {
+      containerVerrouillage.style.display = "none";
     }
-  });
-});
 
-// Quand on clique sur le bouton de fermeture (✕)
-allWindows.forEach(win => {
-  const closeBtn = win.querySelector('.close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      win.classList.add('hidden'); // cache la fenêtre
+    // afficher l'écran de chargement
+    ecranChargement.classList.remove("hidden");
+
+    let width = 0;
+
+    const interval = setInterval(() => {
+      width += 2;
+      if (progression) progression.style.width = width + "%";
+      if (compteur) compteur.textContent = width + "%";
+
+      if (width >= 100) {
+        clearInterval(interval);
+        setTimeout(() => {
+          window.location.href = "accueil2.html";
+        }, 500);
+      }
+    }, 60); // ~3s
+  });
+}
+
+/* ========== 3) NOTIFICATION 5 SECONDES APRÈS CHARGEMENT (accueil2.html) ========== */
+
+/* ========== NOTIFICATION + POPUP (accueil2.html) ========== */
+
+const notif = document.getElementById("notification");
+const popup = document.getElementById("popupStage");
+const popupOkBtn = document.getElementById("popupOkBtn");
+const popupCloseBtn = document.getElementById("popupCloseBtn");
+
+if (notif) {
+  // 5 secondes après l'arrivée sur la page d'accueil2
+  setTimeout(() => {
+    notif.classList.remove("hidden");
+    // petit délai pour déclencher la transition
+    requestAnimationFrame(() => {
+      notif.classList.add("show");
     });
-  }
-});
+  }, 1000);
 
+  // clic sur la notification -> ouvre la fenêtre
+  notif.addEventListener("click", () => {
+    if (popup) {
+      popup.classList.remove("hidden");
+    }
+  });
+}
 
-  // Palette de fonds possibles
-  const backgrounds = [
-    'linear-gradient(to bottom, #ff86d7, #752ca9)',
-    'linear-gradient(to bottom, #191954, #00D7FD)',
-    'linear-gradient(to bottom, #0f3bb4, #ff51c5)',
-    'linear-gradient(to bottom, #B24DF1, #25E4DB)'
-  ];
+// Bouton "J'ai compris" -> ferme la fenêtre + la notif
+if (popupOkBtn) {
+  popupOkBtn.addEventListener("click", () => {
+    if (popup) popup.classList.add("hidden");
+    if (notif) notif.classList.add("hidden");
+  });
+}
 
-  let currentIndex = 0; // commence au premier fond
+// Bouton X -> ferme juste la fenêtre
+if (popupCloseBtn) {
+  popupCloseBtn.addEventListener("click", () => {
+    if (popup) popup.classList.add("hidden");
+  });
+}
 
-  const startBtn = document.querySelector('.start');
+/* ========== CLOCHETTE QUI RÉACTIVE LA NOTIF ========== */
 
+const bell = document.getElementById("notifBell");
 
-startBtn.addEventListener('click', () => {
-  // passe au fond suivant
-  currentIndex = (currentIndex + 1) % backgrounds.length;
-  bureau.style.background = backgrounds[currentIndex];
-});
+function afficherCloche() {
+  if (!bell) return;
+  bell.classList.remove("hidden");
+  requestAnimationFrame(() => {
+    bell.classList.add("show");
+  });
+}
+
+function masquerCloche() {
+  if (!bell) return;
+  bell.classList.remove("show");
+  setTimeout(() => bell.classList.add("hidden"), 200);
+}
+
+// Quand on ferme la popup → afficher la cloche
+
+if (popupOkBtn) {
+  popupOkBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+    notif.classList.add("hidden");
+    afficherCloche();
+  });
+}
+
+if (popupCloseBtn) {
+  popupCloseBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+    afficherCloche();
+  });
+}
+
+// Clic cloche → remettre la notification
+
+if (bell) {
+  bell.addEventListener("click", () => {
+    // masquer la cloche
+    masquerCloche();
+
+    // afficher la notification
+    notif.classList.remove("hidden");
+
+    requestAnimationFrame(() => {
+      notif.classList.add("show");
+    });
+  });
+}
+
