@@ -58,7 +58,7 @@ if (boutonVerrouillage && ecranChargement) {
           window.location.href = "accueil2.html";
         }, 500);
       }
-    }, 60); // ~3s
+    }, 80); // durée du chargement
   });
 }
 
