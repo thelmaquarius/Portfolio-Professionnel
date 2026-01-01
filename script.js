@@ -1,4 +1,4 @@
-/* ========== 1) HORLOGE GLOBALE (index + accueil2) ========== */
+/* ========== 1) HORLOGE GLOBALE (index + accueil) ========== */
 
 function updateClockGlobal() {
   const now = new Date();
@@ -55,73 +55,79 @@ if (boutonVerrouillage && ecranChargement) {
       if (width >= 100) {
         clearInterval(interval);
         setTimeout(() => {
-          window.location.href = "accueil2.html";
+          window.location.href = "accueil.html";
         }, 500);
       }
     }, 80); // durée du chargement
   });
 }
 
-/* ========== 3) NOTIFICATION 5 SECONDES APRÈS CHARGEMENT (accueil2.html) ========== */
-/* ========== NOTIFICATION + POPUP + CLOCHETTE (accueil2.html) ========== */
+/* ===============================
+   3) POPUPS PROJETS
+   =============================== */
+document.querySelectorAll(".icones_accueil .icone").forEach(icone => {
+  icone.addEventListener("click", () => {
+    const popupClass = icone.getAttribute("data-popup");
+    if (!popupClass) return; // ignore les icônes sans data-popup
+    const popup = document.querySelector("." + popupClass);
+    if (popup) popup.classList.remove("hidden");
+  });
+});
 
+// Fermeture des popups via croix ou bouton OK
+document.querySelectorAll(".popup-close, .popup-ok").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const popup = btn.closest(".popup-overlay");
+    if (popup) popup.classList.add("hidden");
+  });
+});
+
+
+/* ===============================
+   4) NOTIFICATION + CLOCHE
+   =============================== */
 const notif = document.getElementById("notification");
-const popup = document.getElementById("popupStage");
-const popupOkBtn = document.getElementById("popupOkBtn");
-const popupCloseBtn = document.getElementById("popupCloseBtn");
 const bell = document.getElementById("notifBell");
+const popupStage = document.getElementById("popupStage");
 
-// 1) Afficher la notif après 5 secondes
+// Affichage de la notification après 5s
 if (notif) {
   setTimeout(() => {
     notif.classList.remove("hidden");
-    requestAnimationFrame(() => {
-      notif.classList.add("show");
-    });
-  }, 1000);
+    requestAnimationFrame(() => notif.classList.add("show"));
+  }, 5000);
 
-  // clic sur la notif → ouvrir la popup
   notif.addEventListener("click", () => {
-    if (popup) {
-      popup.classList.remove("hidden");
-    }
+    if (popupStage) popupStage.classList.remove("hidden");
+    closeNotification();
   });
 }
 
-// 2) Fonction commune : fermer la popup, cacher la notif, montrer la cloche
-function closePopupAndShowBell() {
-  if (popup) {
-    popup.classList.add("hidden");
-  }
+// Fonction pour fermer notification et montrer cloche
+function closeNotification() {
   if (notif) {
     notif.classList.remove("show");
-    notif.classList.add("hidden"); // disparaît pour de bon
+    notif.classList.add("hidden");
   }
   if (bell) {
     bell.classList.remove("hidden");
-    requestAnimationFrame(() => {
-      bell.classList.add("show");
-    });
+    requestAnimationFrame(() => bell.classList.add("show"));
   }
 }
 
-// bouton "J'ai compris"
-if (popupOkBtn) {
-  popupOkBtn.addEventListener("click", closePopupAndShowBell);
-}
-
-// bouton X
-if (popupCloseBtn) {
-  popupCloseBtn.addEventListener("click", closePopupAndShowBell);
-}
-
-// 3) Clic sur la cloche → rouvre juste la popup, la cloche reste
+// Clic sur la cloche → rouvre popup
 if (bell) {
   bell.addEventListener("click", () => {
-    if (popup) {
-      popup.classList.remove("hidden");
-    }
-    // on ne touche pas à la notif → elle reste cachée
+    if (popupStage) popupStage.classList.remove("hidden");
   });
 }
 
+// Fermeture popup stage via boutons
+if (popupStage) {
+  popupStage.querySelectorAll(".popup-close, .popup-ok").forEach(btn => {
+    btn.addEventListener("click", () => {
+      popupStage.classList.add("hidden");
+      closeNotification();
+    });
+  });
+}

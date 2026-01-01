@@ -4,65 +4,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - Thelma Tabury</title>
-  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/pc_violet_favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <!-- Écran de chargement
-  <div class="ecran_chargement" id="chargement">
-    <div class="texte_chargement">
-      <p>Démarrage de ThelmaOS.</p>
-      <p>Chargement des fichiers...</p>
-      <div class="barre_progression"><div class="progression"></div></div>
+
+<!-- GRILLE DES ICÔNES -->
+<div class="icones_accueil">
+  <div class="icone" style="grid-column: 1; grid-row: 1;" data-popup="projet-1-popup">
+    <img src="images/icone_projet.png" alt=""><span>Interview.exe</span>
+  </div>
+  <div class="icone" style="grid-column: 2; grid-row: 1;" data-popup="projet-2-popup">
+    <img src="images/icone_projet.png" alt=""><span>Site WebInventory.exe</span>
+  </div>
+  <div class="icone" style="grid-column: 1; grid-row: 2;" data-popup="projet-3-popup">
+    <img src="images/icone_projet.png" alt=""><span>Campagne de communication.exe</span>
+  </div>
+  <div class="icone" style="grid-column: 2; grid-row: 2;" data-popup="projet-4-popup">
+    <img src="images/icone_projet.png" alt=""><span>Motion Design - Les Petites Légendes.exe</span>
+  </div>
+  <div class="icone" style="grid-column: 3; grid-row: 2;" data-popup="projet-5-popup">
+    <img src="images/icone_projet.png" alt=""><span>Court-Métrage.exe</span>
+  </div>
+  <div class="icone" style="grid-column: 1; grid-row: 3;" data-popup="projet-6-popup">
+    <img src="images/icone_projet.png" alt=""><span>Projet 6/6</span>
+  </div>
+  <div class="icone" style="grid-column: 5; grid-row: 4;" data-popup="linkedin-popup">
+    <img src="images/icone_linkedin2.png" alt=""><span>LinkedIn.com</span>
+  </div>
+  <div class="icone" style="grid-column: 2; grid-row: 4;" data-popup="cv-popup">
+    <img src="images/icone_cv.png" alt=""><span>CV.pdf</span>
+  </div>
+</div>
+
+<!-- POPUPS PROJETS -->
+<div class="popup-overlay projet-1-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Interview.exe</span>
+      <button class="popup-close">✕</button>
     </div>
-    <div class="compteur" id="compteur">0%</div>
-  </div> -->
+    <div class="popup-body">
+      <p>Lors de mon premier semestre, j’ai travaillé sur un projet scolaire d’interview vidéo avec quatre camarades. Nous avons d'abord rédigé une dizaine de questions, avant de tourner dans les locaux de l’intervenant. Afin de proposer des réalisations uniques, nous avons tous réalisé nos propres montages seuls sur Adobe Premiere Pro, dont le mien est le suivant. <br> <br>
 
-  <!-- Interface principale -->
-  <main class="bureau hidden" id="bureau">
-  
-    <header class="taskbar">
-      <div class="start">Start</div>
-      <div class="time" id="clock"></div>
-      
-    </header>
-    <img src="images/thelma_dessin.jpg" alt="Logo" class="thelma">
-    
-  <div class="desktop-icons">
-<div class="icon" data-window="projects">
-  <div class="file"></div>
-  <span>projet_1.txt</span>
+      Cette expérience m’a permis de développer mes compétences en montage vidéo (découpe des plans, transitions, gestion du rythme) mais aussi d’apprendre à mettre en valeur le discours de l’interviewé à travers les enchaînements et les choix d’image, pour mieux faire ressentir son message. Elle m’a également donné envie d’approfondir mes connaissances en audiovisuel et de progresser en laissant davantage ma créativité et ma personnalité s’exprimer à travers mes prochains montages.
+</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
 </div>
-<div class="icon" data-window="about">
-  <div class="file"></div>
-  <span>À propos</span>
+
+<div class="popup-overlay projet-2-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Site WebInventory.exe</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Lors de mon deuxième semestre, j’ai eu pour projet scolaire de développer seule un site web permettant l’inventaire d’objets ou de personnes. Afin d’ajouter ma touche d’originalité, j’ai décidé de répertorier tous les garçons que j’ai aimés, en m’inspirant du célèbre film éponyme. Pour ce faire, j’ai utilisé le logiciel VisualStudio Code, ainsi que la suite Adobe pour quelques éléments graphiques. <br> <br>
+
+      Ce projet m’a permis de dépasser mes limites en me forçant à approfondir mes connaissances dans différents langages de programmation (HTML, CSS, JavaScript) mais aussi à en découvrir un nouveau (PHP avec MySQL). J’ai tenu à exprimer ma personnalité et ma créativité tout en jaugeant l’équilibre entre humour et sérieux. Je trouve finalement que ce site me représente assez bien dans mon ambition et mon audace.
+</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
 </div>
+
+<div class="popup-overlay projet-3-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Campagne de communication.exe</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Lors de mon troisième semestre, j’ai eu pour projet, accompagnée de ma camarade, de réaliser une campagne de communication institutionnelle. Nous devions concevoir l’identité visuelle complète d’une ville (Versailles) autour d’un événement, grâce à des maquettes de page d’accueil, des bannières web et affiches. Nous avons créé nos éléments avec la suite Adobe (InDesign, Photoshop et Illustrator) avant de les rassembler sur Figma. <br> <br>
+        
+      Ce projet m’a permis de renforcer mes compétences en design graphique et en création d’identité visuelle, d’organiser un projet de communication de manière structurée, et de collaborer efficacement avec ma camarade pour que nos créations forment un univers cohérent. J’ai aussi mieux compris les contraintes liées aux différents formats et supports, ce qui m’a aidé à adapter mes créations selon le contexte. </p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
 </div>
-    
 
-    <section class="window projects hidden">
-      <div class="window-header">
-        <span class="titre_fenetre">Projet.txt</span>
-        <button class="close">✕</button>
-      </div>
-      <div class="window-content">
-        <p class="texte_fenetre">Salut ! Je m’appelle Thelma Tabury.</p> 
-        <p class="texte_fenetre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptatibus. Nobis distinctio ut libero possimus labore recusandae cupiditate iusto voluptatum molestiae delectus harum, quas suscipit qui voluptas a voluptates aspernatur.</p>
-      </div>
-    </section>
+<div class="popup-overlay projet-4-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Motion Design.exe</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Contenu du projet 4...</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
+</div>
 
-    <section class="window about hidden">
-      <div class="window-header">
-        <span class="titre_fenetre">Thelma_Tabury.exe</span>
-        <button class="close">✕</button>
-      </div>
-      <div class="window-content">
-         <p class="texte_fenetre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptatibus. Nobis distinctio ut libero possimus labore recusandae cupiditate iusto voluptatum molestiae delectus harum, quas suscipit qui voluptas a voluptates aspernatur.</p>
-      </div>
-    </section>
-  </main>
+<div class="popup-overlay projet-5-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Projet 5</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Court-Métrage.exe</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<div class="popup-overlay projet-6-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Projet 6</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Contenu du projet 6...</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP CV -->
+<div class="popup-overlay cv-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>CV.pdf</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Mon CV au format PDF...</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP LINKEDIN -->
+<div class="popup-overlay linkedin-popup hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>LinkedIn.com</span>
+      <button class="popup-close">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>Pour en savoir plus sur mon profil et mon parcours, retrouvez-moi sur <a href="https://www.linkedin.com/in/thelma-tabury/" target="_blank">LinkedIn !</a></p><br>
+      <p>Logo linkedin juste en dessous</p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Notification en haut à droite -->
+<div id="notification" class="notification hidden">
+  <h1>Nouvelle notification</h1>
+  <h2>Cliquer pour ouvrir</h2>
+</div>
+
+<!-- Fenêtre type Windows XP pour notification -->
+<div id="popupStage" class="popup-overlay hidden">
+  <div class="popup-window">
+    <div class="popup-header">
+      <span>Nouvelle notification</span>
+      <button class="popup-close" id="popupCloseBtn">✕</button>
+    </div>
+    <div class="popup-body">
+      <p>
+        Pour info : Thelma est à la recherche d'un stage de deux mois minimum en production audiovisuelle et design numérique. N'hésitez pas à la contacter !
+      </p>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-ok">Contacts</button>
+      <button class="popup-ok">J'ai compris</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cloche de notification sur le bureau -->
+<img id="notifBell" src="images/cloche.png" class="notification-bell hidden" alt="Ouvrir notification">
+
+<!-- BARRE DES TÂCHES -->
+<div class="taskbar">
+  <div class="taskbar-start">Change to English</div>
+  <div id="heure_bureau" class="taskbar-time">12:34</div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
