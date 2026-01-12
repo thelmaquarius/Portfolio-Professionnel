@@ -331,6 +331,31 @@ body {
   background: #FF00B2;
 }
 
+.illustration {
+    width: 100%;
+    max-width: 25vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #000;
+}
+
+.titre_illustration {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.logo_lien {
+  width: 7%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* Pied de fenêtre */
 .popup-footer {
   padding: 12px;
