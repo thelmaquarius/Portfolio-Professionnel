@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<!-- GRILLE DES ICÔNES -->
 <div class="icones_accueil">
   <div class="icone" style="grid-column: 1; grid-row: 1;" data-popup="projet-1-popup">
     <img src="images/icone_projet.png" alt=""><span class="titre">Interview.exe</span>
@@ -36,9 +35,17 @@
   <div class="icone" style="grid-column: 2; grid-row: 4;" data-popup="cv-popup">
     <img src="images/cv.png" alt=""><span class="titre">CV.pdf</span>
   </div>
+
+   <div class="icone" style="grid-column: 2; grid-row: 5;" data-popup="cv-popup">
+    <img src="images/cv.png" alt=""><span class="titre">CV.pdf</span>
+  </div>
+
+  <div id="notifBellContainer" class="icone hidden" style="grid-column: 5; grid-row: 1;">
+    <img id="notifBell" src="images/cloche.png" alt="Ouvrir la notification">
+    <span class="titre">Notification.exe</span>
+  </div>
 </div>
 
-<!-- POPUPS PROJETS -->
 <div class="popup-overlay projet-1-popup hidden">
   <div class="popup-window">
     <div class="popup-header">
@@ -47,16 +54,15 @@
     </div>
     <div class="popup-body">
       <a href="https://youtu.be/spjaFJovAOQ" target="_blank">
-      <img src="images/interview.png" alt="" loading="lazy" class="illustration">
+        <img src="images/interview.png" alt="" loading="lazy" class="illustration">
       </a>
       <a href="https://youtu.be/spjaFJovAOQ" target="_blank">
-     <img src="images/youtube.png" alt="Lien Youtube de l'Interview" loading="lazy" class="logo_lien">
-     </a>
+        <img src="images/youtube.png" alt="Lien Youtube de l'Interview" loading="lazy" class="logo_lien">
+      </a>
       <br>
       <h1 class="titre_illustration">Interwiew - Guillaume Langin, Journaliste à Ciel et espace</h1>
       <br>
       <p data-key="paragraphe-interview">Lors de mon premier semestre, j’ai travaillé sur un projet scolaire d’interview vidéo avec quatre camarades. Nous avons d'abord rédigé une dizaine de questions, avant de tourner dans les locaux de l’intervenant. Afin de proposer des réalisations uniques, nous avons tous réalisé nos propres montages seuls sur Adobe Premiere Pro, dont le mien est le suivant. <br> <br>
-
       Cette expérience m’a permis de développer mes compétences en montage vidéo (découpe des plans, transitions, gestion du rythme) mais aussi d’apprendre à mettre en valeur le discours de l’interviewé à travers les enchaînements et les choix d’image, pour mieux faire ressentir son message. Elle m’a également donné envie d’approfondir mes connaissances en audiovisuel et de progresser en laissant davantage ma créativité et ma personnalité s’exprimer à travers mes prochains montages.
     </p>
     </div>
@@ -78,12 +84,11 @@
       </a>
       <a href="https://garcons.tabury.projetsmmichamps.fr" target="_blank">
      <img src="images/lien.png" alt="Lien du site web" loading="lazy" class="logo_lien">
-     </a>
+      </a>
       <br>
       <h1 class="titre_illustration">À tous les garçons que j'ai aimés</h1>
       <br>
       <p>Lors de mon deuxième semestre, j’ai eu pour projet scolaire de développer seule un site web permettant l’inventaire d’objets ou de personnes. Afin d’ajouter ma touche d’originalité, j’ai décidé de répertorier tous les garçons que j’ai aimés, en m’inspirant du célèbre film éponyme. Pour ce faire, j’ai utilisé le logiciel VisualStudio Code, ainsi que la suite Adobe pour quelques éléments graphiques. <br> <br>
-
       Ce projet m’a permis de dépasser mes limites en me forçant à approfondir mes connaissances dans différents langages de programmation (HTML, CSS, JavaScript) mais aussi à en découvrir un nouveau (PHP avec MySQL). J’ai tenu à exprimer ma personnalité et ma créativité tout en jaugeant l’équilibre entre humour et sérieux. Je trouve finalement que ce site me représente assez bien dans mon ambition et mon audace.
 </p>
     </div>
@@ -105,12 +110,11 @@
       </a>
       <a href="https://www.figma.com/file/rVGJxyNJyf65W9BDUu6Cko/Campagne-de-communication" target="_blank">
      <img src="images/figma.png" alt="Lien Figma de la campagne de communication" loading="lazy" class="logo_lien">
-     </a>
+      </a>
       <br>
       <h1 class="titre_illustration">Le Bal du Siècle du Château de Versailles</h1>
       <br>
       <p>Lors de mon troisième semestre, j’ai eu pour projet, accompagnée de ma camarade, de réaliser une campagne de communication institutionnelle. Nous devions concevoir l’identité visuelle complète d’une ville (Versailles) autour d’un événement, grâce à des maquettes de page d’accueil, des bannières web et affiches. Nous avons créé nos éléments avec la suite Adobe (InDesign, Photoshop et Illustrator) avant de les rassembler sur Figma. <br> <br>
-        
       Ce projet m’a permis de renforcer mes compétences en design graphique et en création d’identité visuelle, d’organiser un projet de communication de manière structurée, et de collaborer efficacement avec ma camarade pour que nos créations forment un univers cohérent. J’ai aussi mieux compris les contraintes liées aux différents formats et supports, ce qui m’a aidé à adapter mes créations selon le contexte. </p>
     </div>
     <div class="popup-footer">
@@ -125,9 +129,7 @@
       <span data-key="titre-motion-design">Motion Design - Les Petites Légendes.exe</span>
       <button class="popup-close">✕</button>
     </div>
-    <div class="popup-body">
-      <p>tqt</p>
-    </div>
+    <div class="popup-body"><p>tqt</p></div>
     <div class="popup-footer">
       <button class="popup-ok" data-key="bouton-fermer">Fermer</button>
     </div>
@@ -140,9 +142,7 @@
       <span data-key="titre-court-metrage">Court-Métrage.exe</span>
       <button class="popup-close">✕</button>
     </div>
-    <div class="popup-body">
-      <p>tqt</p>
-    </div>
+    <div class="popup-body"><p>tqt</p></div>
     <div class="popup-footer">
       <button class="popup-ok" data-key="bouton-fermer">Fermer</button>
     </div>
@@ -155,16 +155,13 @@
       <span data-key="titre-dataviz">Site ORBIS.exe</span>
       <button class="popup-close">✕</button>
     </div>
-    <div class="popup-body">
-      <p>tqt</p>
-    </div>
+    <div class="popup-body"><p>tqt</p></div>
     <div class="popup-footer">
       <button class="popup-ok" data-key="bouton-fermer">Fermer</button>
     </div>
   </div>
 </div>
 
-<!-- POPUP CV -->
 <div class="popup-overlay cv-popup hidden">
   <div class="popup-window">
     <div class="popup-header">
@@ -172,8 +169,7 @@
       <button class="popup-close">✕</button>
     </div>
     <div class="popup-body">
-      <p> Pour une vision détaillée de mes expériences et compétences, vous pouvez 
-        <strong><u><a href="images/CV Stage Thelma Tabury.pdf" target="_blank"> consulter mon CV</a></u></strong> !</p>
+      <p> Pour une vision détaillée de mes expériences et compétences, vous pouvez <strong><u><a href="images/CV Stage Thelma Tabury.pdf" target="_blank"> consulter mon CV</a></u></strong> !</p>
         <a href="images/CV Stage Thelma Tabury.pdf" target="_blank">
       <img src="images/cv.png" alt="Lien PDF vers mon CV" loading="lazy" class="logo_lien">
       </a>
@@ -184,7 +180,6 @@
   </div>
 </div>
 
-<!-- POPUP LINKEDIN -->
 <div class="popup-overlay linkedin-popup hidden">
   <div class="popup-window">
     <div class="popup-header">
@@ -204,22 +199,18 @@
   </div>
 </div>
 
-<!-- Notification en haut à droite -->
 <div id="notification" class="notification hidden">
   <h1>Nouvelle notification !</h1>
 </div>
 
-<!-- Fenêtre type Windows XP pour notification -->
 <div id="popupStage" class="popup-overlay hidden">
   <div class="popup-window">
     <div class="popup-header">
-      <span>Nouvelle notification</span>
+      <span>Notification.exe</span>
       <button class="popup-close" id="popupCloseBtn">✕</button>
     </div>
     <div class="popup-body">
-      <p>
-        Pour info : Thelma est à la recherche d'un stage de deux mois minimum en production audiovisuelle et design numérique, à partir du 7 avril 2026. N'hésitez pas à la contacter !
-      </p>
+      <p>Pour info : Thelma est à la recherche d'un stage de deux mois minimum en production audiovisuelle et design numérique, à partir du 7 avril 2026. N'hésitez pas à la contacter !</p>
     </div>
     <div class="popup-footer">
       <button class="popup-ok">Contacts</button>
@@ -228,10 +219,6 @@
   </div>
 </div>
 
-<!-- Cloche de notification sur le bureau -->
-<img id="notifBell" src="images/cloche.png" class="notification-bell hidden" alt="Ouvrir la notification">
-
-<!-- BARRE DES TÂCHES -->
 <div class="taskbar">
   <div class="taskbar-english" data-key="bouton-langue">Change to English</div>
   <div id="heure_bureau" class="taskbar-time">12:34</div>

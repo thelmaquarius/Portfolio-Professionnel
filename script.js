@@ -105,13 +105,16 @@ if (notif) {
 
 // Fonction pour fermer notification et montrer cloche
 function closeNotification() {
+  const notif = document.getElementById("notification");
+  const bellContainer = document.getElementById("notifBellContainer"); // On cible le container
+  
   if (notif) {
     notif.classList.remove("show");
     notif.classList.add("hidden");
   }
-  if (bell) {
-    bell.classList.remove("hidden");
-    requestAnimationFrame(() => bell.classList.add("show"));
+  if (bellContainer) {
+    bellContainer.classList.remove("hidden");
+    requestAnimationFrame(() => bellContainer.classList.add("show"));
   }
 }
 
