@@ -168,7 +168,7 @@ body::before {
 }
 
 .taskbar-english {
-  background: linear-gradient(180deg, #f872cf, #f7b8e4);
+  background: linear-gradient(180deg, #ffe9f7 0%, #faa2da 100%);
   padding: 2px 18px;
   border: 2px solid #000;
   cursor: pointer;
@@ -177,7 +177,7 @@ body::before {
 }
 
 .taskbar-english:hover {
-  background: linear-gradient(180deg, #f7b8e4, #f872cf);
+  background: linear-gradient(180deg, #faa2da 0%, #ffe9f7 100%);
 }
 
 .taskbar-time {
@@ -467,10 +467,10 @@ body::before {
     height: clamp(40px, 15vw, 70px);
   }
   .titre_illustration {
-    font-size: 0.9rem;
+    font-size: 1rem;
     }
   .logo_lien {
-  min-width: 75px;
+  min-width: 55px;
 }
   .taskbar {
     width: 100%;
