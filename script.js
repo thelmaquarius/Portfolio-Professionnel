@@ -106,11 +106,11 @@ if (notif) {
 // Fonction pour fermer notification et montrer cloche
 function closeNotification() {
   const notif = document.getElementById("notification");
-  const bellContainer = document.getElementById("notifBellContainer"); // On cible le container
+  const bellContainer = document.getElementById("notifBellContainer");
   
   if (notif) {
     notif.classList.remove("show");
-    notif.classList.add("hidden");
+    setTimeout(() => notif.classList.add("hidden"), 400); // Attend la fin de l'anim
   }
   if (bellContainer) {
     bellContainer.classList.remove("hidden");
@@ -125,10 +125,18 @@ if (bell) {
   });
 }
 
-// Fermeture popup stage via boutons
+// GESTION DES BOUTONS DE LA POPUP STAGE (NOTIFICATION)
 if (popupStage) {
-  popupStage.querySelectorAll(".popup-close, .popup-ok").forEach(btn => {
+  popupStage.querySelectorAll(".popup-ok, .popup-close").forEach(btn => {
     btn.addEventListener("click", () => {
+      
+      // SI C'EST LE BOUTON CONTACTS
+      if (btn.getAttribute("data-popup") === "contacts-popup") {
+        const popupContacts = document.querySelector(".contacts-popup");
+        if (popupContacts) popupContacts.classList.remove("hidden");
+      }
+
+      // DANS TOUS LES CAS, ON FERME LA NOTIF
       popupStage.classList.add("hidden");
       closeNotification();
     });
