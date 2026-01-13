@@ -142,3 +142,26 @@ if (popupStage) {
     });
   });
 }
+
+/* ========== 5) CARROUSELS PROJETS ========== */
+document.querySelectorAll('.carousel-container').forEach(container => {
+  const nextBtn = container.querySelector('.carousel-next');
+  const prevBtn = container.querySelector('.carousel-prev');
+  const imgs = container.querySelectorAll('.carousel-img');
+  let currentIndex = 0;
+
+  function updateCarousel(index) {
+    imgs.forEach(img => img.classList.remove('active'));
+    imgs[index].classList.add('active');
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateCarousel(currentIndex);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateCarousel(currentIndex);
+  });
+});

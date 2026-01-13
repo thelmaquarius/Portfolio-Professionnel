@@ -410,10 +410,20 @@ body::before {
   flex-grow: 1;
 }
 
-.popup-body::-webkit-scrollbar { width: 15px; }
-.popup-body::-webkit-scrollbar-track { background: #ffd3ec; border: 2px solid #000; }
-.popup-body::-webkit-scrollbar-thumb { background: #FF8BDC; border: 2px solid #000; }
-.popup-body::-webkit-scrollbar-thumb:hover { background: #FF00B2; }
+.popup-body::-webkit-scrollbar { 
+  width: 15px; 
+}
+.popup-body::-webkit-scrollbar-track { 
+  background: #ffd3ec; 
+  border: 2px solid #000; 
+}
+.popup-body::-webkit-scrollbar-thumb { 
+  background: #FF8BDC; 
+  border: 2px solid #000; 
+}
+.popup-body::-webkit-scrollbar-thumb:hover { 
+  background: #FF00B2; 
+}
 
 .illustration {
   max-width: 25vw;
@@ -568,4 +578,87 @@ body::before {
   
   .taskbar { padding: 0 5px; }
   .taskbar-english { font-size: 0.75rem; padding: 2px 5px; }
+}
+
+/* --- CARROUSEL --- */
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.carousel-slides {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Ajustez la hauteur selon vos besoins */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0;
+  object-fit: contain;
+  border: #000 3px solid;
+  border-radius: 4px;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #FF8BDC;
+  border: 2px solid #000;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+  background: #FF00B2;
+}
+
+.carousel-prev { left: 10%; }
+.carousel-next { right: 10%; }
+
+/* --- AJUSTEMENT CARROUSEL MOBILE --- */
+
+@media (max-width: 768px) {
+  .carousel-container {
+    /* On ajoute de l'espace en bas pour accueillir les boutons */
+    padding-bottom: 50px; 
+    flex-direction: column;
+  }
+
+  .carousel-prev, .carousel-next {
+    /* On annule le centrage vertical */
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+
+  .carousel-prev {
+    /* Positionne la flèche gauche en bas à gauche */
+    left: 20%; 
+  }
+
+  .carousel-next {
+    /* Positionne la flèche droite en bas à droite */
+    right: 20%; 
+  }
 }
