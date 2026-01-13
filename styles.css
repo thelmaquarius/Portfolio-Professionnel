@@ -470,7 +470,7 @@ body::before {
     font-size: 1rem;
     }
   .logo_lien {
-  min-width: 55px;
+  width: 45px;
 }
   .taskbar {
     width: 100%;
