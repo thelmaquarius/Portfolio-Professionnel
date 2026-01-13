@@ -153,15 +153,72 @@ body::before {
 .icones_accueil {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 15px;
+  /* Force 5 lignes qui se partagent 100% de la hauteur disponible */
+  grid-template-rows: repeat(5, 1fr); 
+  gap: 10px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 43px);
-  padding: 20px;
+  /* Hauteur exacte sans scroll */
+  height: calc(100vh - 43px); 
+  /* Padding réduit pour gagner de la place */
+  padding: 20px 15px; 
   box-sizing: border-box;
+  overflow: hidden; /* Interdit le scroll */
+}
+
+.icone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  justify-content: center;
+}
+
+.icone img {
+  width: clamp(40px, 8vw, 70px);
+  height: clamp(40px, 8vw, 70px);
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+}
+
+.titre {
+  background-color: #ffffff62;
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  word-break: break-word;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  max-width: 160px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* --- STYLES À PROPOS --- */
+
+.icone-cercle img {
+  border-radius: 50%;
+  border: 2px solid #000;
+  object-fit: cover;
+}
+
+.avatar-apropos {
+    border-radius: 50%;
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #000;
+}
+
+.texte-apropos {
+    text-align: justify;
+    padding: 0 10px;
+    line-height: 1.5;
 }
 
 .pos-1-1 { grid-column: 1; grid-row: 1; }
@@ -398,59 +455,6 @@ body::before {
 
 .popup-footer button:hover {
   background: #ffe0f3;
-}
-
-.icone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  justify-content: center;
-}
-
-.icone img {
-  width: clamp(40px, 8vw, 70px);
-  height: clamp(40px, 8vw, 70px);
-  margin-bottom: 0.5rem;
-  object-fit: contain;
-}
-
-.titre {
-  background-color: #ffffff62;
-  display: inline-block;
-  padding: 2px 7px;
-  font-size: 0.9rem;
-  line-height: 1.2;
-  word-break: break-word;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  max-width: 160px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* --- STYLES À PROPOS --- */
-
-.icone-cercle img {
-  border-radius: 50%;
-  border: 2px solid #000;
-  object-fit: cover;
-}
-
-.avatar-apropos {
-    border-radius: 50%;
-    max-width: 150px;
-    display: block;
-    margin: 0 auto;
-    border: 3px solid #000;
-}
-
-.texte-apropos {
-    text-align: justify;
-    padding: 0 10px;
-    line-height: 1.5;
 }
 
 .nom-apropos {
