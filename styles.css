@@ -171,6 +171,7 @@ body::before {
   background: linear-gradient(180deg, #ffe9f7 0%, #faa2da 100%);
   padding: 2px 18px;
   border: 2px solid #000;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
@@ -191,10 +192,11 @@ body::before {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: linear-gradient(180deg, #ffe9f7 0%, #f7c8e6 100%);
+  background: linear-gradient(180deg, #ffe9f7 0%, #f4b7de 100%);
   color: #000;
   padding: 15px 20px;
   border: 2px solid #000;
+  border-radius: 4px;
   font-family: 'VT323', monospace;
   font-weight: 600;
   font-size: 1.3rem;
@@ -211,7 +213,7 @@ body::before {
 }
 
 .notification:hover {
-  background: linear-gradient(0deg, #ffe9f7 0%, #f7c8e6 100%);
+  background: linear-gradient(0deg, #f4b7de 0%, #ffe9f7 100%);
 }
 
 .hidden {
@@ -277,6 +279,7 @@ body::before {
 .popup-footer button {
   background: #e0e0e0;
   border: 2px solid #000;
+  border-radius: 4px;
   padding: 5px 14px;
   cursor: pointer;
   font-family: 'VT323', monospace;
@@ -360,8 +363,9 @@ body::before {
     min-width: 200px;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     border: 3px solid #000;
+    border-radius: 4px;
 }
 
 .titre_illustration {
