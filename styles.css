@@ -47,7 +47,7 @@ body::before {
     }
 
 #heure_verrouillage {
-    font-size: clamp(5rem, 12vw, 9rem);
+      font-size: clamp(7rem, 12vw, 9rem);
       font-weight: 600;
       letter-spacing: 4px;
       margin-bottom: 30px;
@@ -55,8 +55,8 @@ body::before {
     }
 
 .thelma_verrouillage {
-      width: clamp(140px, 28vw, 200px);
-      height: clamp(140px, 28vw, 200px);
+      width: clamp(170px, 28vw, 200px);
+      height: clamp(170px, 28vw, 200px);
       border-radius: 50%;
       overflow: hidden;
       margin-bottom: 25px;
@@ -74,7 +74,7 @@ body::before {
 }
 
 .utilisateur_verrouillage {
-      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-size: clamp(1.7rem, 4vw, 2rem);
       margin-bottom: 25px;
       color: #000;
       background-color: #ffffff62;
@@ -85,7 +85,7 @@ body::before {
 #bouton_verrouillage {
       display: inline-block;
       padding: 12px 40px;
-      font-size: clamp(1.2rem, 3.3vw, 2rem);
+      font-size: clamp(1.7rem, 3.3vw, 2rem);
       color: #fff;
       text-decoration: none;
       background: linear-gradient(0deg, #D000FF, #4528FF);
@@ -481,6 +481,12 @@ body::before {
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+.thelma_verrouillage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
 }
 
