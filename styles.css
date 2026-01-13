@@ -148,9 +148,25 @@ body::before {
   transition: all 0.3s ease;
 }
 
-/* Positionnement des icônes sur la grille */
+/* Grille et Positions */
+
+.icones_accueil {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 43px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .pos-1-1 { grid-column: 1; grid-row: 1; }
 .pos-2-1 { grid-column: 2; grid-row: 1; }
+.pos-5-1 { grid-column: 5; grid-row: 1; }
 .pos-1-2 { grid-column: 1; grid-row: 2; }
 .pos-2-2 { grid-column: 2; grid-row: 2; }
 .pos-3-2 { grid-column: 3; grid-row: 2; }
@@ -160,34 +176,38 @@ body::before {
 .pos-2-4 { grid-column: 2; grid-row: 4; }
 .pos-5-4 { grid-column: 5; grid-row: 4; }
 .pos-3-5 { grid-column: 3; grid-row: 5; }
-.pos-5-1 { grid-column: 5; grid-row: 1; }
 
-/* Styles pour la fenêtre Contacts */
+/* Styles spécifiques Contacts */
+
 .contacts-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 .contact-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.contact-link:hover {
+  transform: scale(1.05);
 }
 
 .contact-icon {
-    width: 4rem; /* 64px */
-    height: 4rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .contact-text {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: bold;
+  font-size: 1.125rem;
+  font-weight: bold;
 }
 
 /* --- BARRE DES TÂCHES --- */
@@ -380,22 +400,6 @@ body::before {
   background: #ffe0f3;
 }
 
-/* --- GRILLE PAGE D'ACCUEIL --- */
-
-.icones_accueil {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 43px);
-  padding: 20px;
-  box-sizing: border-box;
-}
-
 .icone {
   display: flex;
   flex-direction: column;
@@ -429,19 +433,18 @@ body::before {
 
 /* --- STYLES À PROPOS --- */
 
-/* Style pour les icônes d'accueil circulaires (comme l'À propos) */
 .icone-cercle img {
   border-radius: 50%;
   border: 2px solid #000;
-  object-fit: cover; /* Important pour que l'image ne soit pas déformée dans le cercle */
+  object-fit: cover;
 }
 
 .avatar-apropos {
     border-radius: 50%;
     max-width: 150px;
     display: block;
-    margin: 0 auto; /* Centre l'image */
-    border: 3px solid #000; /* Rappel de ton dégradé */
+    margin: 0 auto;
+    border: 3px solid #000;
 }
 
 .texte-apropos {
@@ -466,18 +469,16 @@ body::before {
 
 .temoignage-item {
   padding-left: 15px;
-  background-color: rgba(255, 255, 255, 0.308); /* Léger fond pour faire ressortir le texte */
+  background-color: rgba(255, 255, 255, 0.308);
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 0 4px 4px 0;
 }
 
-/* Premier témoignage : Bordure Violette */
 .temoignage-item.violet {
   border-left: 3px solid #D000FF;
 }
 
-/* Deuxième témoignage : Bordure Rose */
 .temoignage-item.rose {
   border-left: 3px solid #FF00B2;
 }
@@ -498,10 +499,16 @@ body::before {
 @media (max-width: 768px) {
   .icones_accueil {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: auto;
+    overflow-y: auto;
     height: calc(100vh - 65px);
     gap: 10px;
     padding: 10px;
+  }
+
+  .icone {
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 
   .icone img { width: 45px; height: 45px; }
@@ -515,7 +522,6 @@ body::before {
     object-fit: cover;
   }
 
-  /* Taskbar Mobile */
   .taskbar {
     height: 60px;
     padding: 0 10px;
@@ -533,6 +539,12 @@ body::before {
     font-size: 1.1rem;
     white-space: nowrap;
     margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .icones_accueil {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
