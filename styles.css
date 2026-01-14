@@ -129,7 +129,7 @@ body::before {
   min-width: 180px;
   height: 18px;
   border: 2px solid #fd92ff;
-  border-radius: 4px;
+  border-radius: 20px;
   overflow: hidden;
   display: block;
   margin: 10vh auto 0 auto;
